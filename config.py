@@ -1,0 +1,6 @@
+customhost = "loaddb.cklu5mjaf56t.ap-south-1.rds.amazonaws.com"
+customuser = "loaddb"
+custompass = "WELcome123"
+customdb = "sample"
+custombucket = "iaac-load-ec2"
+customregion = "ap-south-1"
