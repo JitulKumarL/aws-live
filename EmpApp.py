@@ -32,7 +32,7 @@ def about():
 
 
 @app.route("/addempoutput", methods=['POST'])
-def addmeoutput():
+def addempoutput():
     return render_template('AddEmp.html')
 
 
