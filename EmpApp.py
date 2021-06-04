@@ -36,28 +36,28 @@ def addempoutput():
     return render_template('AddEmp.html')
 
 
-@app.route("/getempoutput", methods=['POST'])
+@app.route("/getempoutput", methods=['GET'])
 def getempoutput():
-    return render_template('GetEmp.html')
+    return render_template('GetEmpOutput.html')
 
 
 @app.route("/getemp", methods=['GET', 'POST'])
-def GetEmp():
+def getemp():
     cursor = db_conn.cursor()
     cursor.execute("SELECT * FROM employees WHERE emp_id=%s", (id))
     cursor.fetchone()
     db_conn.commit()
-    return render_template('GetEmpOutput.html')
+    return render_template('GetEmp.html')
 
 
 @app.route("/addemp", methods=['POST'])
 def AddEmp():
-    emp_id = request.form['emp_id']
-    first_name = request.form['first_name']
-    last_name = request.form['last_name']
-    pri_skill = request.form['pri_skill']
-    location = request.form['location']
-    emp_image_file = request.files['emp_image_file']
+    emp_id = request.form.get("emp_id")
+    first_name = request.form.get("first_name")
+    last_name = request.form.get("last_name")
+    pri_skill = request.form.get("pri_skill")
+    location = request.form.get("location")
+    emp_image_file = request.files.get("emp_image_file")
 
     cursor = db_conn.cursor()
     cursor.execute(
